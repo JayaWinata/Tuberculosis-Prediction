@@ -1,6 +1,12 @@
 preprocess:
   input: data/raw/tuberculosis_xray_dataset.csv
-  output: data/processed/data.csv
+  output:
+  - data/processed/data_v1.csv
+  - data/processed/data_v2.csv
+  - data/processed/data_v3.csv
+  - data/processed/data_v4.csv
+  - data/processed/data_v5.csv
+  - data/processed/data_v6.csv
 
 train:
   input: data/processed/data.csv
