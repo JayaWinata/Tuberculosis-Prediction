@@ -4,15 +4,24 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import numpy as np
-import sys
+import pickle
+import logging
 import yaml
+import sys
 import os
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 params = yaml.safe_load(open("params.yaml"))['preprocess']
 
 def preprocess(input_path, output_path):
     df = pd.read_csv(input_path)
     df = df.drop('Patient_ID', axis=1)
+
+    le_target = LabelEncoder()
+    df['Class'] = le_target.fit_transform(df['Class'])
+
+    os.makedirs(os.path.dirname(output_path[0]), exist_ok=True)
+    pickle.dump(le_target, open(output_path[0], 'wb'))
 
     categorical_cols = df.select_dtypes(include='object').columns
     cols_to_scale = ['Age', 'Cough_Severity', 'Breathlessness', 'Fatigue', 'Weight_Loss']
@@ -45,13 +54,18 @@ def preprocess(input_path, output_path):
         (df_v2.copy(), StandardScaler()),  # df_v6: One-hot encoded + StandardScaler
     ]
 
+    # Save encoders to pickle files
+
+
     # Apply transformations and save to CSV
-    os.makedirs(os.path.dirname(output_path[0]), exist_ok=True)
+    os.makedirs(os.path.dirname(output_path[1]), exist_ok=True)
     for i, (df, scaler) in enumerate(transformations):
         if scaler:  # Apply scaling if a scaler is provided
             for col in cols_to_scale:
                 df[col] = scaler.fit_transform(df[[col]])
-        df.to_csv(output_path[i], index=False)
+        df.to_csv(output_path[i+1], index=False)
+
+    logging.info("Data preprocessing completed successfully.")
 
 if __name__ == '__main__':
     preprocess(params['input'], params['output'])

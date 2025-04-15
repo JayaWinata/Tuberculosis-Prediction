@@ -1,16 +1,20 @@
 preprocess:
   input: data/raw/tuberculosis_xray_dataset.csv
   output:
-  - data/processed/data_v1.csv
-  - data/processed/data_v2.csv
-  - data/processed/data_v3.csv
-  - data/processed/data_v4.csv
-  - data/processed/data_v5.csv
-  - data/processed/data_v6.csv
+    - models/le_target.pkl
+    - data/processed/data_v1.csv
+    - data/processed/data_v2.csv
+    - data/processed/data_v3.csv
+    - data/processed/data_v4.csv
+    - data/processed/data_v5.csv
+    - data/processed/data_v6.csv
 
 train:
-  input: data/processed/data.csv
+  input:
+    - data/processed/data_v1.csv
+    - data/processed/data_v2.csv
+    - data/processed/data_v3.csv
+    - data/processed/data_v4.csv
+    - data/processed/data_v5.csv
+    - data/processed/data_v6.csv
   output: data/model/model.pkl
-  random_state: 42
-  n_estimators: 100
-  max_depth: 10
