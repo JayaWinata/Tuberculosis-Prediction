@@ -11,10 +11,16 @@ preprocess:
 
 train:
   input:
-    - data/processed/data_v1.csv
-    - data/processed/data_v2.csv
-    - data/processed/data_v3.csv
-    - data/processed/data_v4.csv
-    - data/processed/data_v5.csv
-    - data/processed/data_v6.csv
-  output: data/model/model.pkl
+    - name: "Label Encoding"
+      path: "data/processed/data_v1.csv"
+    - name: "One-hot Encoding"
+      path: "data/processed/data_v2.csv"
+    - name: "Label Encoding + MinMax Scaler"
+      path: "data/processed/data_v3.csv"
+    - name: "Label Encoding + Standard Scaler"
+      path: "data/processed/data_v4.csv"
+    - name: "One-hot Encoding + MinMax Scaler"
+      path: "data/processed/data_v5.csv"
+    - name: "One-hot Encoding + Standard Scaler"
+      path: "data/processed/data_v6.csv"
+  output: models/model.pkl
