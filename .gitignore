@@ -1,1 +1,3 @@
 tbc_prediction_venv
+mlruns/
+mlartifacts/
