@@ -1,0 +1,3 @@
+['remote "origin"']
+    url = s3://dvc
+    endpointurl = https://dagshub.com/jayawinata100/Tuberculosis-Prediction.s3

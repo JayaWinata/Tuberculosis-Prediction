@@ -1,6 +1,6 @@
 stages:
   preprocess:
-    cmd: python preprocess.py data/raw/tuberculosis_xray_dataset.csv
+    cmd: python src/preprocess.py
     deps:
     - data/raw/tuberculosis_xray_dataset.csv
     - src/preprocess.py
@@ -13,7 +13,7 @@ stages:
     - data/processed/data_v6.csv
     - models/le_target.pkl
   train:
-    cmd: python train.py
+    cmd: python src/train.py
     deps:
     - data/processed/data_v1.csv
     - data/processed/data_v2.csv
@@ -25,7 +25,7 @@ stages:
     outs:
     - models/model.pkl
   evaluate:
-    cmd: python evaluate.py
+    cmd: python src/evaluate.py
     deps:
     - data/processed/data_v1.csv
     - data/processed/data_v2.csv
@@ -35,5 +35,3 @@ stages:
     - data/processed/data_v6.csv
     - models/model.pkl
     - src/evaluate.py
-    outs:
-    - metrics/eval.json

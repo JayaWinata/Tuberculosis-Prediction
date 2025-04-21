@@ -1,0 +1,113 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/raw/tuberculosis_xray_dataset.csv
+      hash: md5
+      md5: a9dc189087f1ab3c060fd70244898044
+      size: 1433274
+    - path: src/preprocess.py
+      hash: md5
+      md5: e6e7d3e330dffd9dce664dff98507a16
+      size: 2749
+    outs:
+    - path: data/processed/data_v1.csv
+      hash: md5
+      md5: 1a7901a0e3cc2a6d304e20259acf4525
+      size: 664788
+    - path: data/processed/data_v2.csv
+      hash: md5
+      md5: db09b426072e86ce5b05110b2175ac82
+      size: 1105031
+    - path: data/processed/data_v3.csv
+      hash: md5
+      md5: bf6fe8c7a55f6cb54eacd111db27a818
+      size: 1804565
+    - path: data/processed/data_v4.csv
+      hash: md5
+      md5: 0cb7c9cb5614da0fc99cdb28b019c3a2
+      size: 2333459
+    - path: data/processed/data_v5.csv
+      hash: md5
+      md5: 5ef1c1f67129b39380ffb6de47d69378
+      size: 2244808
+    - path: data/processed/data_v6.csv
+      hash: md5
+      md5: 14ceac9347e362c50b50314db4433c70
+      size: 2773702
+    - path: models/le_target.pkl
+      hash: md5
+      md5: 5826f8016b2a9c69574049337e48d707
+      size: 267
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/data_v1.csv
+      hash: md5
+      md5: 1a7901a0e3cc2a6d304e20259acf4525
+      size: 664788
+    - path: data/processed/data_v2.csv
+      hash: md5
+      md5: db09b426072e86ce5b05110b2175ac82
+      size: 1105031
+    - path: data/processed/data_v3.csv
+      hash: md5
+      md5: bf6fe8c7a55f6cb54eacd111db27a818
+      size: 1804565
+    - path: data/processed/data_v4.csv
+      hash: md5
+      md5: 0cb7c9cb5614da0fc99cdb28b019c3a2
+      size: 2333459
+    - path: data/processed/data_v5.csv
+      hash: md5
+      md5: 5ef1c1f67129b39380ffb6de47d69378
+      size: 2244808
+    - path: data/processed/data_v6.csv
+      hash: md5
+      md5: 14ceac9347e362c50b50314db4433c70
+      size: 2773702
+    - path: src/train.py
+      hash: md5
+      md5: ca133e5824daec9576b909a12f186c4c
+      size: 5666
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: 1e117413c07572da81853c53d7c3f1f0
+      size: 1092
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: data/processed/data_v1.csv
+      hash: md5
+      md5: 1a7901a0e3cc2a6d304e20259acf4525
+      size: 664788
+    - path: data/processed/data_v2.csv
+      hash: md5
+      md5: db09b426072e86ce5b05110b2175ac82
+      size: 1105031
+    - path: data/processed/data_v3.csv
+      hash: md5
+      md5: bf6fe8c7a55f6cb54eacd111db27a818
+      size: 1804565
+    - path: data/processed/data_v4.csv
+      hash: md5
+      md5: 0cb7c9cb5614da0fc99cdb28b019c3a2
+      size: 2333459
+    - path: data/processed/data_v5.csv
+      hash: md5
+      md5: 5ef1c1f67129b39380ffb6de47d69378
+      size: 2244808
+    - path: data/processed/data_v6.csv
+      hash: md5
+      md5: 14ceac9347e362c50b50314db4433c70
+      size: 2773702
+    - path: models/model.pkl
+      hash: md5
+      md5: 1e117413c07572da81853c53d7c3f1f0
+      size: 1092
+    - path: src/evaluate.py
+      hash: md5
+      md5: be06f03a4eea22b1c2d6f7451d604cd1
+      size: 1377
