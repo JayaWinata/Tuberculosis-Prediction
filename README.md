@@ -4,7 +4,7 @@
 
 This project predicts the presence of Tuberculosis (TB) using clinical and diagnostic tabular data. It leverages machine learning to assist in early diagnosis and uses modern ML tooling (DVC, MLflow) to ensure reproducibility, experiment tracking, and model versioning.
 
-## ✨ Key Features
+## Key Features
 
 - Binary classification to detect TB-positive vs. TB-negative cases
 - In-depth Exploratory Data Analysis (EDA)
@@ -55,7 +55,7 @@ This project predicts the presence of Tuberculosis (TB) using clinical and diagn
 
 - Model not clinically validated on real-world healthcare systems
 - Dataset size may limit generalization
-- ⚖No explainability modules yet (e.g., SHAP, LIME)
+- No explainability modules yet (e.g., SHAP, LIME)
 - Class imbalance handling may require more refinement
 
 ## Conclusion
