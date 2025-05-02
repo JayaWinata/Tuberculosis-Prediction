@@ -2,7 +2,8 @@
 
 ## Overview
 
-This project predicts the presence of Tuberculosis (TB) using clinical and diagnostic tabular data. It leverages machine learning to assist in early diagnosis and uses modern ML tooling (DVC, MLflow) to ensure reproducibility, experiment tracking, and model versioning.
+This project predicts the presence of Tuberculosis (TB) using clinical and diagnostic tabular data. It leverages machine learning to assist in early diagnosis and uses modern ML tooling such as DVC and MLflow to ensure reproducibility, experiment tracking, and model versioning.
+This project also serves as a demonstration of how to integrate MLflow and DVC in a practical MLOps workflow for managing data, models, and experiments effectively.
 
 ## Key Features
 
