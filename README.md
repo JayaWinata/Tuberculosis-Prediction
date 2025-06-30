@@ -21,7 +21,7 @@ This project also serves as a demonstration of how to integrate MLflow and DVC i
 - **Python**: Main programming language
 - **Pandas, NumPy**: Data wrangling
 - **Matplotlib, Seaborn**: Data visualization
-- **Scikit-learn: ML models and evaluation
+- **Scikit-learn**: ML models and evaluation
 - **MLflow**: Experiment tracking and model registry
 - **DVC**: Data and model version control
 - **Pickle**: Model persistence
