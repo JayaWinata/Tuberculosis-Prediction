@@ -52,6 +52,21 @@ This project also serves as a demonstration of how to integrate MLflow and DVC i
    - Save final model with `pickle`
    - Optionally register the model in MLflow for future deployment
 
+---
+
+## 📈 Evaluation Metrics
+
+Models (Logistic Regression, Random Forest, Support Vector Machine) are evaluated and tracked via **MLflow**. The performance metrics computed and logged for each experiment run include:
+- **Accuracy**
+- **Precision**
+- **Recall**
+- **F1-Score**
+- **Confusion Matrix & Classification Report**
+
+To view exact run metrics and parameters, check the MLflow tracking server or run `mlflow ui`.
+
+---
+
 ## Project Limitations
 
 - Model not clinically validated on real-world healthcare systems
